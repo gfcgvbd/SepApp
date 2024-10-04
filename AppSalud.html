@@ -3,214 +3,234 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>App de Salud Infantil</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* Estilos generales para móviles */
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #a8e0ff, #ff9bff);
-            color: #333;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a237e, #6a1b9a); /* Fondo degradado */
+            color: #fff;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
+            min-height: 100vh; /* Para centrar verticalmente */
         }
 
         .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 20px auto;
+            width: 100%;
+            max-width: 380px; /* Ancho máximo para no sobresalir en móviles */
+            margin: 0 auto;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1); /* Fondo transparente en la caja */
             border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         h1, h2 {
-            text-align: center;
-            color: #1a237e;
+            margin-top: 20px;
+            font-size: 2rem;
         }
 
         .card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
             margin: 20px 0;
-            padding: 20px;
-            border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s;
+            color: #000;
         }
 
-        .card:hover {
-            transform: scale(1.02);
-        }
-
-        .icons {
-            color: #1a237e;
-        }
-
-        .tips, .recipes {
-            margin: 10px 0;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            margin-top: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
         }
 
         input, textarea, button {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            border: 1px solid #ccc;
+            width: 90%; /* Para que los inputs no sobresalgan */
+            padding: 12px;
+            margin: 10px auto;
+            border: none;
             border-radius: 5px;
+            font-size: 1rem;
+            display: block; /* Para centrarlos horizontalmente */
+        }
+
+        input, textarea {
+            background-color: #f0f0f0;
+            color: #000;
         }
 
         button {
-            background: #1a237e;
-            color: white;
-            border: none;
+            background-color: #1a237e;
+            color: #fff;
+            font-size: 1.2rem;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: background-color 0.3s;
         }
 
         button:hover {
-            background: #0d47a1;
+            background-color: #303f9f;
         }
 
-        .login-register {
-            display: flex;
-            justify-content: space-between;
+        .welcome {
+            font-size: 1.2rem;
+            margin-top: 20px;
             margin-bottom: 20px;
         }
 
-        .login-register div {
-            width: 48%;
+        footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            color: #000;
+            width: 100%;
+            position: relative;
+            bottom: 0;
         }
+
         @media (max-width: 600px) {
-    .container {
-        width: 95%;
-        padding: 15px;
-    }
+            h1, h2 {
+                font-size: 1.8rem;
+            }
 
-    h1, h2 {
-        font-size: 1.5rem;
-    }
+            .card {
+                padding: 15px;
+                margin: 15px 0;
+            }
 
-    button {
-        padding: 15px;
-        font-size: 1.2rem;
-    }
+            button {
+                font-size: 1rem;
+                padding: 10px;
+            }
 
-    input, textarea {
-        padding: 12px;
-        font-size: 1.1rem;
-    }
+            input, textarea {
+                padding: 10px;
+                font-size: 1rem;
+            }
+        }
 
-    .card {
-        margin: 10px 0;
-        padding: 15px;
-    }
-}
+        .contact-info {
+            margin-top: 20px;
+            font-size: 1rem;
+            text-align: center;
+            color: #000;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
 
+        .contact-info a {
+            color: #1a237e;
+            text-decoration: none;
+        }
+
+        .section {
+            margin: 30px 0;
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .recipes-list {
+            text-align: left;
+        }
+
+        .recipes-list ul {
+            padding-left: 20px;
+        }
+
+        .recipes-list li {
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>App de Salud Infantil</h1>
+        <h1>SepApp</h1>
+        <h2>App de Salud Infantil</h2>
 
-        <!-- Sección de Registro e Inicio de Sesión -->
-        <div class="card login-register">
-            <!-- Registro -->
-            <div>
-                <h2>Regístrate</h2>
-                <input type="text" placeholder="Correo electrónico" required>
-                <input type="password" placeholder="Contraseña" required>
-                <select required>
-                    <option value="">¿Es tu primera vez usando una aplicación similar?</option>
-                    <option value="si">Sí</option>
-                    <option value="no">No</option>
-                </select>
-                <button>Registrarse</button>
+        <div class="card">
+            <h3>Regístrate</h3>
+            <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" placeholder="Correo electrónico">
             </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" placeholder="Contraseña">
+            </div>
+            <button>Registrarse</button>
+        </div>
 
-            <!-- Inicio de Sesión -->
-            <div>
-                <h2>Iniciar Sesión</h2>
-                <input type="text" placeholder="Correo electrónico" required>
-                <input type="password" placeholder="Contraseña" required>
-                <button>Entrar</button>
+        <div class="card">
+            <h3>Iniciar Sesión</h3>
+            <div class="form-group">
+                <label for="login-email">Correo electrónico</label>
+                <input type="email" id="login-email" placeholder="Correo electrónico">
+            </div>
+            <div class="form-group">
+                <label for="login-password">Contraseña</label>
+                <input type="password" id="login-password" placeholder="Contraseña">
+            </div>
+            <button>Entrar</button>
+        </div>
+
+        <p class="welcome">Bienvenido</p>
+        <p>La salud de su niño está en nuestras manos. Gracias por usar nuestra app para monitorear su bienestar.</p>
+
+        <div class="card section">
+            <h3>Datos del Niño</h3>
+            <div class="form-group">
+                <label for="nombre">Nombre del niño</label>
+                <input type="text" id="nombre" placeholder="Nombre del niño">
+            </div>
+            <div class="form-group">
+                <label for="edad">Edad</label>
+                <input type="number" id="edad" placeholder="Edad">
             </div>
         </div>
 
-        <!-- Bienvenida -->
-        <div class="card">
-            <h2>Bienvenido</h2>
-            <p>La salud de su niño está en nuestras manos. Gracias por usar nuestra app para monitorear su bienestar.</p>
-        </div>
-
-        <!-- Datos del Niño -->
-        <div class="card">
-            <h2>Datos del Niño</h2>
-            <input type="text" placeholder="Nombre del niño" required>
-            <input type="number" placeholder="Edad" required>
-            <input type="number" placeholder="Estatura (cm)" required>
-            <input type="number" placeholder="Peso (kg)" required>
-            <textarea rows="4" placeholder="¿Qué más debemos saber del niño?" required></textarea>
-            <button>Guardar Datos</button>
-        </div>
-
-        <!-- Información sobre alimentación -->
-        <div class="card">
-            <h2>Información de Alimentación</h2>
-            <p>Alimentos recomendados para el niño según su perfil:</p>
+        <!-- Sección de Recetas -->
+        <div class="card section recipes-list">
+            <h3>Recetas Saludables</h3>
             <ul>
-                <li>Desayunos recomendados: Avena, Frutas, Yogurt</li>
-                <li>Almuerzos recomendados: Pollo, Verduras, Arroz integral</li>
-                <li>Cenas recomendadas: Sopa ligera, Ensaladas</li>
+                <li>Puré de frutas frescas</li>
+                <li>Papillas de verduras y pollo</li>
+                <li>Sopas nutritivas para niños</li>
             </ul>
         </div>
 
-        <!-- Consejos para padres -->
-        <div class="card">
-            <h2>Consejos para Padres</h2>
-            <div class="tips">
-                <h3><i class="fas fa-lightbulb icons"></i> Consejos Prácticos:</h3>
-                <ul>
-                    <li><strong>Fomentar Hábitos Saludables:</strong> Involucra a tu hijo en la preparación de comidas saludables.</li>
-                    <li><strong>Consultas Médicas Regulares:</strong> Visita a médicos regulares para asegurar que su crecimiento y desarrollo estén en buen camino.</li>
-                    <li><strong>Ser un Modelo a Seguir:</strong> Los niños aprenden observando. Muestra hábitos saludables en tu propia alimentación y estilo de vida.</li>
-                    <li><strong>Limitar el Azúcar:</strong> Trata de reducir el consumo de azúcares añadidos y alimentos altamente procesados en la dieta de tu hijo.</li>
-                </ul>
-            </div>
+        <!-- Sección de Alimentación -->
+        <div class="card section">
+            <h3>Información sobre la Alimentación</h3>
+            <p>Es importante ofrecer alimentos variados y equilibrados para que el niño reciba todos los nutrientes necesarios para su crecimiento y desarrollo.</p>
+            <p>Recomendamos incluir frutas, verduras, proteínas y carbohidratos en cada comida.</p>
         </div>
 
-        <!-- Recetas -->
-        <div class="card">
-            <h2>Recetas Saludables</h2>
-            <p>Aquí encontrarás muchas recetas saludables adaptadas a las necesidades de tu hijo.</p>
-            <button>Ver Recetas</button>
+        <!-- Sección de Contacto -->
+        <div class="contact-info">
+            <p><strong>Contacto:</strong></p>
+            <p>Teléfono: <a href="tel:+51980823626">+51 980 823 626</a></p>
+            <p>Correo: <a href="mailto:appdesaludinfantil@gmail.com">appdesaludinfantil@gmail.com</a></p>
         </div>
-
-        <!-- Contacto -->
-        <div class="card contact" id="contacto">
-            <h2>Contacto</h2>
-            <p>Si tienes preguntas, sugerencias o comentarios, no dudes en contactarnos:</p>
-            <p><strong>Email:</strong> <a href="mailto:appdesaludinfantil@gmail.com">appdesaludinfantil@gmail.com</a></p>
-            <p><strong>Teléfono:</strong> +51 980 823 626</p>
-            <form>
-                <input type="text" placeholder="Nombre" required>
-                <input type="email" placeholder="Correo Electrónico" required>
-                <textarea rows="4" placeholder="Tu Mensaje" required></textarea>
-                <button>Enviar Mensaje</button>
-            </form>
-        </div>
-
-        <footer>
-            <p>© 2024 App de Salud Infantil. Todos los derechos reservados.</p>
-        </footer>
     </div>
+
+    <footer>
+        &copy; 2024 SepApp - Todos los derechos reservados.
+    </footer>
 </body>
 </html>
