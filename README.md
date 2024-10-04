@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -90,6 +89,32 @@
         .login-register div {
             width: 48%;
         }
+        @media (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        padding: 15px;
+        font-size: 1.2rem;
+    }
+
+    input, textarea {
+        padding: 12px;
+        font-size: 1.1rem;
+    }
+
+    .card {
+        margin: 10px 0;
+        padding: 15px;
+    }
+}
+
     </style>
 </head>
 <body>
